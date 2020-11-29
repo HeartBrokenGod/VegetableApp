@@ -78,7 +78,7 @@ type TokenStatuses struct {
 type Tokens struct {
 	UserID        int           `gorm:"index:Fk_token_user_id;column:user_id;type:int(11);not null" json:"user_id"`
 	Users         Users         `gorm:"joinForeignKey:user_id;foreignKey:id" json:"users_list"`
-	Token         string        `gorm:"column:token;type:varchar(256);not null" json:"token"`
+	Token         string        `gorm:"primaryKey;column:token;type:varchar(256);not null" json:"token"`
 	StatusID      int           `gorm:"index:Fk_token_status_id;column:status_id;type:int(11);not null" json:"status_id"`
 	TokenStatuses TokenStatuses `gorm:"joinForeignKey:status_id;foreignKey:id" json:"token_statuses_list"`
 }
